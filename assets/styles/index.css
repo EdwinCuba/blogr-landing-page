@@ -83,6 +83,9 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+li.open span{
+    transform: rotate(180deg);
+}
 .menu ul li{
     margin: 20px;
     text-align: center;
@@ -133,6 +136,7 @@ body{
 
 .header{
     width: 100%;
+    min-height: 600px;
     padding: 25px;
     padding-top: 60px;
     padding-bottom: 140px;
@@ -170,6 +174,12 @@ header .menu__logo{
     width: 32px;
     height: 18px;
     background-image: url('../static/icon-hamburger.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header .menu__logo.open{
+    background-image: url('../static/icon-close.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -264,6 +274,7 @@ header .menu__logo{
 
 .resalt{
     width: 100%;
+    min-height: 580px;
     margin-top: 100px;
     position: relative;
 }
@@ -276,6 +287,7 @@ header .menu__logo{
 }
 .resalt .container{
     width: 100%;
+    min-height: 580px;
     background: linear-gradient(var(--Very-dark-gray-blue), var(--Very-dark-desaturated-blue));
     padding: 220px 10px 100px 10px;
     border-radius: 0 100px 0 100px;
