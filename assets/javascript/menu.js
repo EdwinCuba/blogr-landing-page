@@ -7,14 +7,14 @@ const handleMenu = () => {
 menuLogo.addEventListener('click', handleMenu);
 
 const menuOptions = {
-    'menu-product': 'product-options',    
-    'menu-company': 'company-options',    
-    'menu-connect': 'connect-options',    
+    'menu-product': 'product-options',
+    'menu-company': 'company-options',
+    'menu-connect': 'connect-options',
 }
-const openOptions =  event => {
+const openOptions = event => {
     const selector = event.target.id;
     const arrow = document.getElementById(selector);
-    const selection =  document.getElementById(menuOptions[selector]);
+    const selection = document.getElementById(menuOptions[selector]);
     arrow.classList.toggle('open');
     selection.classList.toggle('open');
 }

@@ -1,7 +1,7 @@
 :root{
     /* ### Primary */
-    --Light-red: hsl(356, 100%, 66%); /* (CTA text)*/
-    --Very-light-red: hsl(355, 100%, 74%);  /*(CTA hover background)*/
+    --Light-red-txt: hsl(356, 100%, 66%); /* (CTA text)*/
+    --Very-light-red-bg: hsl(355, 100%, 74%);  /*(CTA hover background)*/
     --Very-dark-blue : hsl(208, 49%, 24%); /*(headings)*/
 
     /* ### Neutral */
@@ -209,23 +209,24 @@ header .menu__logo.open{
 }
 .front .buttons{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
 }
 .front .buttons button{
     outline: none;
-    width: 45%;
+    width: 130px;
     height: 45px;
     border: 2px solid var(--White);
     border-radius: 22.5px;
     cursor: pointer;
+    margin: 0 6px;
     font-size: 1.5rem;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
 }
 .front .buttons button:nth-child(1){
     background-color: var(--White);
-    color: var(--Light-red);
+    color: var(--Light-red-txt);
 }
 .front .buttons button:nth-child(2){
     background-color: transparent;
@@ -233,6 +234,9 @@ header .menu__logo.open{
 }
  
 /***********TEXT FORMAT******/
+.text{
+    padding: 0 20px;
+}
 .item{
     margin-bottom: 40px;
 }
@@ -252,9 +256,6 @@ header .menu__logo.open{
     color: var(--Very-dark-grayish-blue);
     font-family: 'Overpass', sans-serif;
 }
-.text{
-    padding: 0 20px;
-}
 /****************************/
 .caract{
     width: 100%;
@@ -267,27 +268,35 @@ header .menu__logo.open{
     font-weight: 600;
     color: var(--Very-dark-blue);
 }
+.caract .content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .caract .content img{
     width: 100%;
+    max-width: 406px;
     margin: 50px 0;
 }
 
 .resalt{
     width: 100%;
-    min-height: 580px;
+    max-height: 580px;
     margin-top: 100px;
     position: relative;
 }
 .resalt img{
-    width: 100%;
+    width: 375px;
     position: absolute;
     z-index: 1;
     top: -190px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .resalt .container{
     width: 100%;
-    min-height: 580px;
+    max-height: 580px;
     background: linear-gradient(var(--Very-dark-gray-blue), var(--Very-dark-desaturated-blue));
     padding: 220px 10px 100px 10px;
     border-radius: 0 100px 0 100px;
@@ -298,14 +307,14 @@ header .menu__logo.open{
 .resalt .container::before{
     content: '';
     position: absolute;
-    top: -230px;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -250px;
+    left: -110px;
+    width: 600px;
+    height: 610px;
     background-image: url('../static/bg-pattern-circles.svg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 160%;
+    background-size: cover;
     z-index: -1;
 }
 .resalt .item{
@@ -325,9 +334,13 @@ header .menu__logo.open{
 .advantage{
     width: 100%;
     padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .advantage img{
     width: 100%;
+    max-width: 406px;
     margin-bottom: 50px;
 }
 .advantage .text{
@@ -366,4 +379,231 @@ footer img{
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     color: var(--Grayish-blue);
+}
+
+@media screen and (min-width: 1024px){
+    header .menu__logo{
+        display: none;
+        pointer-events: none;
+    }
+    .menu{
+        width: 75vw;
+        height: unset;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+        display: flex;
+        flex-direction: row;
+        top: 45px;
+        left: auto;
+        right: 50px;
+        transform: none;
+    }
+    .menu nav::after{
+        content: none;
+    }
+    .menu ul{
+        display: flex;
+    }
+    .menu ul .option{
+        position: relative;
+    }
+    .menu .option > li:hover{
+        text-decoration: underline;
+        font-weight: 700;
+    }
+    .menu .option li:hover{
+        font-weight: 700;
+    }
+    .menu ul .option ul{
+        width: 180px;
+    }
+    .menu nav > ul li{
+        width: 100px;
+        margin: 15px 0;
+        text-align: center;
+        color: var(--White);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 500;
+    }
+    .menu ul li span{
+        margin-left: 2px;
+        background-image: url('../static/icon-arrow-light.svg');
+    }
+    .menu ul ul{
+        display: none;
+        background-color: var(--White);
+        position: absolute;
+        box-shadow: 0px 10px 30px -10px;
+    }
+    .menu ul ul li{
+        color: var(--Very-dark-blue);
+        margin: 15px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 500;
+    }
+    .menu .log{
+        flex-direction: row;
+    }
+    .menu .log button{
+        cursor: pointer;
+        font-family: 'Ubuntu', sans-serif;
+    }
+    .menu .log button:nth-child(1){
+        color: var(--White);
+    }
+    .menu .log button:nth-child(2){
+        border:transparent;
+        background: var(--White);
+        color: var(--Light-red-txt);
+    }
+    .menu .log button:nth-child(2):hover{
+        border-color: var(--Very-light-red-bg);
+        background-color: var(--Very-light-red-bg);
+        color: var(--White);
+    }
+    .header{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .front .introduction h1{
+        font-size: 4rem;
+    }
+    .front .buttons button:nth-child(1):hover {
+        border-color: var(--Very-light-red-bg);
+        background-color: var(--Very-light-red-bg);
+        color: var(--White);
+    }
+    .front .buttons button:nth-child(2):hover {
+        background-color: var(--White);
+        color: var(--Light-red-txt);
+    }
+
+    .text{
+        padding: 50px;
+    }
+    .item h3{
+        text-align: left;
+    }
+    .item p{
+        text-align: left;
+    }
+
+    .caract{
+        overflow: hidden;
+        padding-bottom: 150px;
+    }
+    .caract h2{
+        font-size: 3rem;
+        margin-bottom: 50px;
+    }
+    .caract .content{
+        width: 100vw;
+        padding-right: 0%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+    }
+    .caract .content img{
+        content: url('../static/illustration-editor-desktop.svg');
+        width: 130%;
+        max-width: unset;
+        margin: 0;
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        position: absolute;
+        right: -35%;
+    }
+    .caract .content .text{
+        max-width: 650px;
+        justify-self: right;
+    }
+
+    .resalt{
+        margin: 0;
+    }
+    .resalt img{    
+        width: 500px;
+        top: -50px;
+        left: 25%;
+    }
+    .resalt .container{
+        padding: 100px 50px 100px 50%;
+    }
+
+    .advantage{
+        padding: 100px 0;
+        flex-direction: row;
+        position: relative;
+    }
+    .advantage img{
+        content: url('../static/illustration-laptop-desktop.svg');
+        position: absolute;
+        top: 0;
+        left: -20%;
+        width: 70%;
+        max-width: unset;
+    }
+    .advantage .text{
+        padding-left: 50%;
+        padding-right: 50px;
+    }
+
+    footer{
+        padding: 80px 50px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .footer-nav_item{
+        text-align: left;
+    }
+    .footer-nav_item ul li:hover{
+        text-decoration: underline;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .menu{
+        width: 65vw;
+        right: 100px;
+    }
+    .header{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    .resalt .container{
+        padding: 100px 100px 100px 50%;
+    }
+    .advantage{
+        padding: 200px 0;
+    }
+    .advantage .text{
+        padding-right: 100px;
+    }
+}
+@media screen and (min-width: 1400px){
+    .menu{
+        width: 65vw;
+        right: 100px;
+    }
+    .header{
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+    .resalt .container{
+        padding: 150px 100px 100px 50%;
+    }
+    .advantage{
+        padding: 250px 0;
+    }
+    .advantage .text{
+        padding-right: 150px;
+    }
 }
